@@ -1,5 +1,9 @@
 <div class="box">
-  <button class="button" href="#">I took it!</button>
+  <%= form_with model: @new_dose do |f| %>
+    <%= f.submit "Took it!", class: 'button' %>
+  <% end %>
+</div>
 
-  <p>You took your last pill at.</p>
+<div class="box">
+  <p>You took your last pill at <%= @last_dose.created_at %>, <%= time_ago_in_words(@last_dose.created_at) %> ago.</p>
 </div>
